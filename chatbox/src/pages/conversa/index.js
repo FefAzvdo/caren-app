@@ -34,7 +34,7 @@ const Conversa = (props) => {
   };
 
   const pushBotMessage = () => {
-    const botAwnser = { sender: nome, message: 'Estou verificando seu pedido, só um momento...' };
+    const botAwnser = { sender: nome, message: 'Estou verificando seu, só um momento...' };
     messageArray.push(botAwnser);
   };
 
@@ -65,8 +65,6 @@ const Conversa = (props) => {
 
   const img = 'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png';
 
-
-  console.log('MESSAGES >>>>>', props.conversas_p.chats[id].messages);
   return (
     <Container>
       <ChatHeader>
@@ -77,7 +75,7 @@ const Conversa = (props) => {
           </BackButton>
         </Link>
         <h2>
-          {`Médico(a): ${nome}`}
+          {`BOT: ${nome}`}
           {' '}
         </h2>
         <img

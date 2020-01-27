@@ -105,7 +105,7 @@ const Contatos = (props) => {
         contentLabel="Example Modal"
       >
         <Input
-          placeholder="Digite o nome do médico(a) ."
+          placeholder="Digite o nome do BOT ."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
