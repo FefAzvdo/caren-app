@@ -1,12 +1,8 @@
-// Types
 export const Types = {
-  ADD_NEW_CHAT: 'contato/ADD_NEW_CHAT',
-  ADD_NEW_MESSAGE: 'contato/ADD_NEW_MESSAGE',
+  ADD_NEW_CHAT: 'conversa/ADD_NEW_CHAT',
+  ADD_NEW_MESSAGE: 'conversa/ADD_NEW_MESSAGE',
 };
 
-
-// Actions
-// REQUEST -> SAGA -> CHAMADA API -> SUCCESS
 export const Creators = {
   addChat: (id, bot) => ({
     type: Types.ADD_NEW_CHAT,
@@ -18,37 +14,11 @@ export const Creators = {
   }),
 };
 
-
-// Reducer
-// Irá ser as PROPS do meu COMPONENTE
-// Acessar via: this.props.characters
-// characters poder ser qualquer nome que dermos no mapStateToProps
 const INITIAL_STATE = {
   loading: false,
   error: null,
   id: 0,
-  chats: [
-    // {
-    //   id: 0,
-    //   bot: 'Fernando',
-    //   messages: [
-    //     {
-    //       sender: 'User',
-    //       message: 'Lorem ipsum dolor sit amet.',
-    //     },
-    //   ],
-    // },
-    // {
-    //   id: 1,
-    //   bot: 'Fulano',
-    //   messages: [
-    //     {
-    //       sender: 'User',
-    //       message: 'Lorem ipsum dolor sit amet.',
-    //     },
-    //   ],
-    // },
-  ],
+  chats: [],
 };
 
 export default function favorites(state = INITIAL_STATE, action) {
@@ -64,7 +34,9 @@ export default function favorites(state = INITIAL_STATE, action) {
         ...state,
         chats: [...state.chats, state.chats.map((chat) => {
           if (chat.id === action.payload.id) {
-            chat.message.push({ sender: action.payload.sender, message: action.payload.message });
+            return (
+              chat.message.push({ sender: action.payload.sender, message: action.payload.message })
+            );
           }
         })],
       };
@@ -72,15 +44,3 @@ export default function favorites(state = INITIAL_STATE, action) {
       return { ...state };
   }
 }
-
-
-// {
-//   id: Math.random(),
-//   bot: 'Felipe',
-//   message: [
-//     'Lorem ipsum dolor sit amet.',
-//     'Lorem ipsum dolor sit amet.',
-//     'Lorem ipsum dolor sit amet.',
-//     'Lorem ipsum dolor sit amet.',
-//   ],
-// },

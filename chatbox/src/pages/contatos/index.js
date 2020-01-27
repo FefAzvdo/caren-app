@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { TiUserAdd, TiTick, TiTimes } from 'react-icons/ti';
-
+import { useAlert } from 'react-alert';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Creators as ContatosActions } from '../../store/ducks/contatos';
@@ -20,6 +20,7 @@ import ActionButton from '../../components/ActionButton';
 const Contatos = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
+  const alert = useAlert();
 
   useEffect(() => {
     Modal.setAppElement('body');
@@ -31,6 +32,24 @@ const Contatos = (props) => {
 
   const closeModal = () => {
     setIsOpen(false);
+  };
+
+
+  const handleAddContato = () => {
+    if (input.length === 0) {
+      alert.show('Usuário não pode ser nulo');
+      return;
+    }
+
+    props.addChat(props.conversas_p.id, input);
+    props.adicionarContato(input);
+
+    setInput('');
+    closeModal();
+  };
+
+  const handleDeletarContato = (id) => {
+    props.deletarContato(id);
   };
 
   const customStyles = {
@@ -46,34 +65,10 @@ const Contatos = (props) => {
     },
   };
 
-  const handleAddContato = () => {
-    if (input.length === 0) {
-      alert('Usuário não pode ser nulo');
-      return;
-    }
-
-
-    props.addChat(props.conversas_p.id, input);
-    props.adicionarContato(input);
-
-    setInput('');
-    closeModal();
-  };
-
-  // const handleAddChat = (id, nome) => {
-  //   props.addChat(id, nome);
-  // };
-
-  const handleDeletarContato = (id) => {
-    props.deletarContato(id);
-  };
-
-  console.log(props);
-
   return (
     <Container>
       <div>
-        <h1 style={{ textAlign: 'center' }}>CHATBOX APP</h1>
+        <h1 style={{ textAlign: 'center' }}>CHATBOT APP</h1>
         {
           props.contatos_p.contatos.map((contato) => (
             <Contato
@@ -110,7 +105,7 @@ const Contatos = (props) => {
         contentLabel="Example Modal"
       >
         <Input
-          placeholder="Digite o nome do contato novo"
+          placeholder="Digite o nome do médico(a) ."
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
