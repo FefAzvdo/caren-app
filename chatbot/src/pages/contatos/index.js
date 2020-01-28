@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import { TiUserAdd, TiTick, TiTimes } from 'react-icons/ti';
 import { useAlert } from 'react-alert';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { Creators as ContatosActions } from '../../store/ducks/contatos';
 import { Creators as ConversasActions } from '../../store/ducks/conversas';
@@ -26,14 +27,8 @@ const Contatos = (props) => {
     Modal.setAppElement('body');
   }, []);
 
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   const handleAddContato = () => {
     if (input.length === 0) {
@@ -97,6 +92,12 @@ const Contatos = (props) => {
       <ActionButton title="Adicionar novo contato" onClick={openModal}>
         <TiUserAdd />
       </ActionButton>
+
+      <Link to="/Prontuario">
+        <ActionButton title="Ir para teste">
+          <TiUserAdd />
+        </ActionButton>
+      </Link>
 
       <Modal
         isOpen={isOpen}

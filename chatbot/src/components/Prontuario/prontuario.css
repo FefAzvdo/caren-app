@@ -1,0 +1,128 @@
+@font-face {
+  font-family: regularNoto;
+  src: url("../../assets/fonts/NotoSansDisplay-Condensed.ttf");
+}
+
+body{
+  font-family: regularNoto;
+  background: #fff;
+}
+
+.mainWrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.headerPart, .middlePart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #696969;
+  
+}
+
+.headerPart{
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom: 0px
+}
+
+.headerButton {
+  color: #666;
+  padding: 8px;
+  background: #E5E5E5;
+  margin: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border: 0px;
+}
+
+.headerButton:hover, .activeHeaderButton{
+  background: #33B6AE;
+  color: #fff
+}
+
+.plusButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid #eee; */
+  border-radius: 15px;
+  width: 35px;
+  height: 35px;
+  background: #eee;
+}
+
+.plusButton button {
+  border: 2px solid #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 2px;
+  color:#999999;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.MuiSlider-thumb {
+  height: 20px !important;
+  margin-top: -10px !important;
+  border-radius: 0px !important;
+  color: #33B6AE !important; 
+}
+.MuiSlider-thumb.MuiSlider-active{
+  box-shadow: 0px 0px 0px 2px !important;
+}
+
+.MuiSlider-root {
+  color: #666 !important;
+}
+
+
+.MuiSlider-mark, .MuiSlider-markActive {
+  height: 17px !important;
+  margin-top: -7px !important;
+  background-color: #CCC !important;
+}
+
+.MuiSlider-markActive{
+  background-color: #CCC !important;
+}
+
+.MuiSlider-markLabel {
+    top: -15px !important;
+}
+
+.MuiSlider-track {
+  height: 10px !important;
+  margin-top: -3px !important;
+  background: rgba(51,182,174,0.2) !important;
+}
+
+.MuiSlider-markLabelActive{
+  color: #666 !important;
+}
+
+.MuiSlider-marked {
+  margin-bottom: 0px !important;
+}
+
+@media screen and (max-width: 700px){
+  .mainWrapper{
+    padding: 0;
+  }
+
+  .headerButton{
+    width: 90%;
+  }
+  .middlePart{
+    display: none;
+  }
+  .headerPart{
+    border-bottom: 1px solid #696969;
+  }
+}
