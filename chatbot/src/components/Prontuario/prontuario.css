@@ -14,20 +14,43 @@ body{
   padding: 50px;
 }
 
-.headerPart, .middlePart{
+.headerPart, .middlePart, .bottomPart{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
   border: 1px solid #696969;
-  
 }
 
 .headerPart{
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   border-bottom: 0px
+}
+
+.bottomPart{
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 0px;
+  flex-wrap: wrap;
+}
+
+.bottomPart_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+
+  background-image: url("../../assets/images/silhueta.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.bottomPart_right{
+  width: 60%;
+  padding: 50px;
 }
 
 .headerButton {
@@ -43,6 +66,20 @@ body{
 .headerButton:hover, .activeHeaderButton{
   background: #33B6AE;
   color: #fff
+}
+
+.bodyButton{
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  border: 0px;
+  background-color: rgba(51, 182, 173, 0.5);
+  cursor: pointer;
+}
+
+.bodyButtonActive{
+  border: 10px solid rgba(51, 182, 173, 0.5);
+  background-color: #33b6ada4
 }
 
 .plusButton {
@@ -67,6 +104,220 @@ body{
   font-size: 20px;
   font-weight: bold;
 }
+
+.info_box{
+  border: 1px solid #666;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+  padding: 30px
+
+}
+
+.info_box_header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.info_box_header h2 {
+  color: #33B6AE;
+  font-size: 1.9rem;
+}
+
+.info_box_header p {
+  color: #f1ce00;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.info_box_header_description{
+  padding: 10px;
+  font-style: italic;
+  color: #5f5e5e;
+  border-bottom: 1px solid #5f5e5e;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+}
+
+.info_box_middle_info_up{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info_box_middle_medications{
+  border-right: 1px solid #5f5e5e;
+  padding: 10px;
+  width: 50%;
+}
+
+.info_box_middle_medications h2 {
+  color: #33B6AE;
+  font-size: 1rem;
+  letter-spacing:2px;
+  margin-bottom: 8px;
+}
+
+.info_box_middle_medications li{
+  color: #5f5e5e; 
+  font-style: italic; 
+}
+
+.info_box_middle_medications_wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.current {
+  font-weight: bold;
+  color: #5f5e5e;
+  padding-top: 2px;
+}
+
+.symbicort h3{
+  color: #33B6AE;
+  font-weight: bold;
+  text-align: center;
+}
+
+.symbicort p {
+  color: #5f5e5e;
+  font-style: italic;
+}
+
+
+.info_box_middle_see_past{
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.info_box_middle_see_past_button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #5f5e5e;
+}
+
+.info_box_middle_see_past_button p{
+  color: #7a7a7a;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.your_history{
+  padding: 10px;
+  padding-top: 0px;
+}
+
+.your_history h2{
+  color: #33B6AE;
+  font-size: 1rem;
+  letter-spacing:2px;
+  margin-bottom: 8px;
+}
+
+.your_history div {
+  height: 300px;
+  background: #666;
+}
+
+.finalButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end
+}
+
+
+
+
+
+
+@media screen and (max-width: 1024px){
+  .bottomPart_left, .bottomPart_right{
+    width: 100%;
+    padding: 0px;
+
+  }
+  .info_box{
+    margin-top: 30px;
+  }
+
+  .bottomPart_left{
+    display: none;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 700px){
+  /* .silhueta{
+    width: 100%;
+    height: auto;
+  } */
+
+  .bottomPart_left{
+    padding-top: 20px;
+  }
+  
+  .mainWrapper{
+    padding: 0;
+  }
+
+  .headerButton{
+    width: 90%;
+  }
+  .middlePart{
+    display: none;
+  }
+  .headerPart{
+    border-bottom: 1px solid #696969;
+  }
+
+  .bottomPart{
+    border-top: 1px solid #696969;
+    padding: 0px;
+  }
+
+
+  .info_box_middle_info_up{
+    flex-direction: column;
+  }
+
+  .info_box_middle_medications{
+    width: 100%;
+  }
+  
+  .info_box_middle_medications_wrap {
+    justify-content: space-between;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+
+  }
+
+  .info_box_middle_medications{
+    border-right: 0px ;
+    border-bottom: 1px solid #5f5e5e;
+    margin-bottom: 20px;
+  }
+
+  .current {
+    margin-bottom: 5px;
+  }
+}
+
+
+
+
+
+
+/* Modificação MaterialUi */
 
 .MuiSlider-thumb {
   height: 20px !important;
@@ -109,20 +360,4 @@ body{
 
 .MuiSlider-marked {
   margin-bottom: 0px !important;
-}
-
-@media screen and (max-width: 700px){
-  .mainWrapper{
-    padding: 0;
-  }
-
-  .headerButton{
-    width: 90%;
-  }
-  .middlePart{
-    display: none;
-  }
-  .headerPart{
-    border-bottom: 1px solid #696969;
-  }
 }

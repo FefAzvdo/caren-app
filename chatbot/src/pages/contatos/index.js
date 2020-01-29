@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { TiUserAdd, TiTick, TiTimes } from 'react-icons/ti';
+import { FaFileMedical } from 'react-icons/fa';
 import { useAlert } from 'react-alert';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -93,9 +94,9 @@ const Contatos = (props) => {
         <TiUserAdd />
       </ActionButton>
 
-      <Link to="/Prontuario">
-        <ActionButton title="Ir para teste">
-          <TiUserAdd />
+      <Link to="/Prontuario" style={{ textDecoration: 'none', color: '#000' }}>
+        <ActionButton title="Prontuário">
+          <FaFileMedical />
         </ActionButton>
       </Link>
 
