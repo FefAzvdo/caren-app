@@ -5,6 +5,8 @@ import Slider from '@material-ui/core/Slider';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { useAlert } from 'react-alert';
 import Registro from '../Registro';
+import ChartsPage from '../Grafico';
+
 
 const marks = [
   {
@@ -55,7 +57,8 @@ const marks = [
 
 const Prontuario = () => {
   const [headerButton, setHeaderButton] = useState('1');
-  const [bodyButton, setBodyButton] = useState('1');
+  const [bodyButton, setBodyButton] = useState('2');
+  const [flexMode, setFlexMode] = useState('center');
   const alert = useAlert();
   const [value, setValue] = useState([0, 30]);
   const mockArr = ['registro', 'registro', 'registro', 'registro', 'registro', 'registro', 'registro', 'registro', 'registro', 'registro'];
@@ -74,6 +77,14 @@ const Prontuario = () => {
     const newShowItem = showItem >= mockArr.length ? showItem : showItem + 1;
     setShowItem(newShowItem);
   };
+
+  const { innerHeight } = window;
+
+  const handleBodyFlex = (bodyBtn, flexMd) => {
+    setBodyButton(bodyBtn);
+    setFlexMode(flexMd);
+  };
+
 
   return (
     <div className="mainWrapper">
@@ -124,26 +135,39 @@ const Prontuario = () => {
       </div>
       <div className="bottomPart">
         <div className="bottomPart_left">
-          <button
-            className={bodyButton === '2' ? 'bodyButton bodyButtonActive' : 'bodyButton'}
-            style={{ position: 'relative', bottom: 0, left: 160 }}
-            type="button"
-            onClick={() => setBodyButton('2')}
-          />
-          <button
-            className={bodyButton === '1' ? 'bodyButton bodyButtonActive' : 'bodyButton'}
-            style={{ position: 'relative', bottom: 200, left: 0 }}
-            type="button"
-            onClick={() => setBodyButton('1')}
-          />
-          <button
-            className={bodyButton === '3' ? 'bodyButton bodyButtonActive' : 'bodyButton'}
-            style={{ position: 'relative', bottom: -160, left: -70 }}
-            type="button"
-            onClick={() => setBodyButton('3')}
-          />
+          <div
+            className="bodyButton"
+            role="button"
+            onClick={() => handleBodyFlex('1', 'flex-start')}
+          >
+            <div className={bodyButton === '1' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
+          </div>
+          <div
+            className="bodyButton"
+            role="button"
+            onClick={() => handleBodyFlex('2', 'center')}
+          >
+            <div className={bodyButton === '2' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
+          </div>
+          <div
+            className="bodyButton"
+            role="button"
+            onClick={() => handleBodyFlex('3', 'flex-end')}
+          >
+            <div className={bodyButton === '3' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
+          </div>
         </div>
         <div className="bottomPart_right">
+          <div className="arrowContainer">
+            <div style={{
+              height: innerHeight - 50,
+              display: 'flex',
+              alignItems: flexMode,
+            }}
+            >
+              <div className="arrowContainerArrow" />
+            </div>
+          </div>
           <div className="info_box">
             <div className="info_box_header">
               <h2>Asthma</h2>
@@ -193,7 +217,7 @@ const Prontuario = () => {
             </div>
             <div className="your_history">
               <h2>YOUR HISTORY</h2>
-              <div />
+              <ChartsPage />
             </div>
             <div style={{ marginTop: 10 }}>
               {
@@ -202,8 +226,10 @@ const Prontuario = () => {
             </div>
             {
               (!endMock) && (
-              <div role="button" onClick={loadMoreContent} className="finalButton">
-                <IoMdArrowDropdown />
+              <div className="finalButton">
+                <div role="button" onClick={loadMoreContent} style={{ cursor: 'pointer' }}>
+                  <IoMdArrowDropdown />
+                </div>
               </div>
               )
 }
