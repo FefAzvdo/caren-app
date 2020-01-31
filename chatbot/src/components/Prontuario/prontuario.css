@@ -344,7 +344,7 @@ body{
 }
 
 
-@media screen and (max-width: 321px){
+@media screen and (max-width: 500px){
   .info_box_header div {
     margin: 0px
   }
