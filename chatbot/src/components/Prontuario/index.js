@@ -91,7 +91,7 @@ const Prontuario = () => {
       <div className="headerPart">
         <div>
           <h2 style={{ color: '#666', fontSize: '1.5rem' }}>
-              ELLEN'S MEDICAL JOURNAL
+  ELLEN&apos;S MEDICAL JOURNAL
           </h2>
         </div>
         <div>
@@ -135,27 +135,27 @@ const Prontuario = () => {
       </div>
       <div className="bottomPart">
         <div className="bottomPart_left">
-          <div
+          <button
             className="bodyButton"
-            role="button"
             onClick={() => handleBodyFlex('1', 'flex-start')}
+            type="button"
           >
             <div className={bodyButton === '1' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
-          </div>
-          <div
+          </button>
+          <button
             className="bodyButton"
-            role="button"
             onClick={() => handleBodyFlex('2', 'center')}
+            type="button"
           >
             <div className={bodyButton === '2' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
-          </div>
-          <div
+          </button>
+          <button
             className="bodyButton"
-            role="button"
             onClick={() => handleBodyFlex('3', 'flex-end')}
+            type="button"
           >
             <div className={bodyButton === '3' ? 'bodyButtonInner bodyButtonActive' : 'bodyButtonInner'} />
-          </div>
+          </button>
         </div>
         <div className="bottomPart_right">
           <div className="arrowContainer">
@@ -171,14 +171,17 @@ const Prontuario = () => {
           <div className="info_box">
             <div className="info_box_header">
               <h2>Asthma</h2>
-              <div style={{ marginTop: '-20px' }}>
+              <div>
                 <p style={{ textAlign: 'right' }}>ACTIVE</p>
                 <p style={{ fontStyle: 'italic' }}>1947-present</p>
               </div>
             </div>
             <div className="info_box_header_description">
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ducimus?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae eum dolorum saepe eligendi natus voluptate corporis molestias facere pariatur minima.
+                Lorem ipsum dolor sit amet consectetur elit. Ut, ducimus?
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae eum dolorum saepe eligendi natus
+                voluptate corporis molestias facere pariatur minima.
               </p>
             </div>
             <div className="info_box_middle">
@@ -209,9 +212,13 @@ const Prontuario = () => {
               <div className="info_box_middle_see_past">
                 <div className="info_box_middle_see_past_button">
                   <p>SEE PAST MEDICATIONS</p>
-                  <div role="button" onClick={() => alert.show('world')} style={{ cursor: 'pointer' }}>
+                  <button
+                    type="button"
+                    onClick={() => alert.show('world')}
+                    style={{ cursor: 'pointer', border: 0, background: 'transparent' }}
+                  >
                     <IoMdArrowDropdown />
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
@@ -227,9 +234,13 @@ const Prontuario = () => {
             {
               (!endMock) && (
               <div className="finalButton">
-                <div role="button" onClick={loadMoreContent} style={{ cursor: 'pointer' }}>
+                <button
+                  type="button"
+                  onClick={loadMoreContent}
+                  style={{ cursor: 'pointer', border: 0, background: 'transparent' }}
+                >
                   <IoMdArrowDropdown />
-                </div>
+                </button>
               </div>
               )
 }
